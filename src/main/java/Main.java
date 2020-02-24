@@ -11,21 +11,6 @@ public class Main {
     public static void main(String[] args){
 
         Board board = new Board();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        Pawn pawn = new Pawn(new Point(CordinateX.A, 2), board);
-        board.addFigure(new Pawn(new Point(CordinateX.B, 2), board));
-        board.addFigure(new Pawn(new Point(CordinateX.C, 2), board));
-        board.addFigure(new Pawn(new Point(CordinateX.D, 2), board));
-        board.addFigure(new Pawn(new Point(CordinateX.E, 2), board));
-        board.addFigure(new Pawn(new Point(CordinateX.F, 2), board));
-        board.addFigure(new Pawn(new Point(CordinateX.G, 2), board));
-        board.addFigure(new Pawn(new Point(CordinateX.H, 2), board));
-        board.printBoard();
-
-=======
-=======
->>>>>>> Stashed changes
         Point point = new Point(CordinateX.G, 5);
         Pawn pawn = new Pawn(point, board);
         point.setX(CordinateX.B);
@@ -33,11 +18,6 @@ public class Main {
 
         board.printBoard();
 
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 
 }
