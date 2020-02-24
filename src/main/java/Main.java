@@ -12,6 +12,7 @@ public class Main {
 
         Board board = new Board();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         Pawn pawn = new Pawn(new Point(CordinateX.A, 2), board);
         board.addFigure(new Pawn(new Point(CordinateX.B, 2), board));
         board.addFigure(new Pawn(new Point(CordinateX.C, 2), board));
@@ -23,6 +24,8 @@ public class Main {
         board.printBoard();
 
 =======
+=======
+>>>>>>> Stashed changes
         Point point = new Point(CordinateX.G, 5);
         Pawn pawn = new Pawn(point, board);
         point.setX(CordinateX.B);
@@ -31,6 +34,9 @@ public class Main {
         board.printBoard();
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 
