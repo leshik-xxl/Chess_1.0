@@ -1,12 +1,12 @@
 package game;
 
-public enum Color {
+public enum ColorFigure {
     white(0),
     black(1);
 
     private int x;
 
-    private Color(int x) {
+    private ColorFigure(int x) {
         this.x = x;
     }
 

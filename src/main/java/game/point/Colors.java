@@ -2,18 +2,18 @@ package game.point;
 
 import game.ColorFigure;
 
-public class Colores {
+public class Colors {
     private ColorFigure color;
 
-    public Colores(ColorFigure color) {
+    public Colors(ColorFigure color) {
         this.color = color;
     }
 
-    public int getColor() {
+    public int getValueColor() {
         return color.getColorValue();
     }
 
-    public void setColor(ColorFigure color) {
+    public void setColors(ColorFigure color) {
         this.color = color;
     }
 }

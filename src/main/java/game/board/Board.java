@@ -15,13 +15,27 @@ public class Board {
         chessBoard[figure.getPoint().getX()][figure.getPoint().getY()] = figure;
     }
 
+    public void moveFigure(Point sourcePoint, Point destPoint){
+          Figure figures = chessBoard[sourcePoint.getX()][sourcePoint.getY()];
+          figures.move(sourcePoint, destPoint);
+    }
+
+    public Figure getFigure(Point sourcePoint){
+        return chessBoard[sourcePoint.getX()][sourcePoint.getY()];
+    }
 
     public void deleteFigure(Point point){
         chessBoard[point.getX()][point.getY()] = null;
     }
 
-    public boolean isOccupiedPoint(Point point){
-        return chessBoard[point.getX()][point.getY()] != null;
+    public boolean isAvailablePoint(Point point){
+        boolean isAvailable = false;
+        try {
+            if (chessBoard[point.getX()][point.getY()] == null) isAvailable = true;
+        }catch(Exception e){
+        }
+
+        return  isAvailable;
     }
 
     public void printBoard() {

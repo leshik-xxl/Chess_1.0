@@ -1,29 +1,39 @@
 package game.figure;
 
+
+
 import game.board.Board;
+import game.point.Colors;
 import game.point.Point;
 
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
-
 public abstract class Figure {
 
-    private Point point;
-    private Board board;
-    private List<Point> posiablePoint;
+    protected Point point;
+    protected Board board;
+    protected Colors color;
+    protected ArrayList<Point> possiblePoint;
 
-    public Figure(Point point, Board board) {
+    public Figure(Point point, Colors color, Board board) {
         this.point = point;
         this.board = board;
+        this.color = color;
     }
 
-    abstract void move(Point cellPoint);
-    abstract List<Point> getPosiblePoint();
+    abstract public void move(Point sourcePoint, Point destPoint);
+    abstract protected ArrayList<Point> getPossiblePoint(Point sourcePoint);
 
     public Point getPoint() {
         return point;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public Colors getColor() {
+        return color;
     }
 }
 

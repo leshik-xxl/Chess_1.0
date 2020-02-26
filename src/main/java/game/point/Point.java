@@ -1,5 +1,4 @@
 package game.point;
-
 import game.CordinateX;
 
 public class Point {
@@ -12,6 +11,9 @@ public class Point {
         this.y = y - 1;
     }
 
+    public Point() {
+    }
+
     public int getX() {
         return x.getValueX();
     }
@@ -22,6 +24,11 @@ public class Point {
 
     public int getY() {
         return y;
+    }
+
+    public void set(CordinateX x, int y){
+        this.x = x;
+        this.y = y - 1;
     }
 
     public void setY(int y) {
