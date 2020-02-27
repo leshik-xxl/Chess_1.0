@@ -2,6 +2,9 @@ package game.point;
 
 import game.ColorFigure;
 
+import java.util.Objects;
+
+
 public class Colors {
     private ColorFigure color;
 
@@ -16,4 +19,9 @@ public class Colors {
     public void setColors(ColorFigure color) {
         this.color = color;
     }
+
+    public boolean MYequals(Colors colors) {
+        return color.getColorValue() == colors.getValueColor();
+    }
+
 }

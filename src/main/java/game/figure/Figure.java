@@ -22,7 +22,7 @@ public abstract class Figure {
     }
 
     abstract public void move(Point sourcePoint, Point destPoint);
-    abstract protected ArrayList<Point> getPossiblePoint(Point sourcePoint);
+    abstract public ArrayList<Point> getPossiblePoint(Point sourcePoint);
 
     public Point getPoint() {
         return point;

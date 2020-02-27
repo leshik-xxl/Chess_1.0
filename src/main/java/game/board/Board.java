@@ -16,6 +16,7 @@ public class Board {
     }
 
     public void moveFigure(Point sourcePoint, Point destPoint){
+       // sourcePoint.printPoint();
           Figure figures = chessBoard[sourcePoint.getX()][sourcePoint.getY()];
           figures.move(sourcePoint, destPoint);
     }
@@ -26,6 +27,11 @@ public class Board {
 
     public void deleteFigure(Point point){
         chessBoard[point.getX()][point.getY()] = null;
+    }
+
+    public void removeFigure(Point sourcePoint, Point destPoint){
+        chessBoard[destPoint.getX()][destPoint.getY()] = getFigure(sourcePoint);
+        chessBoard[sourcePoint.getX()][sourcePoint.getY()] = null;
     }
 
     public boolean isAvailablePoint(Point point){
