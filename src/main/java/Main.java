@@ -31,8 +31,13 @@ public class Main {
             board.addFigure(pawnBlack);
         }
 
-        board.moveFigure(new Point(CordinateX.A, 2), new Point(CordinateX.A, 4));
-        board.moveFigure(new Point(CordinateX.A, 4), new Point(CordinateX.A, 6));
+        board.moveFigure(new Point(CordinateX.A, 7), new Point(CordinateX.A, 5));
+        board.printBoard();
+        System.out.println();
+        board.moveFigure(new Point(CordinateX.B, 2), new Point(CordinateX.B, 4));
+        board.printBoard();
+        System.out.println();
+        board.moveFigure(new Point(CordinateX.B, 4), new Point(CordinateX.A, 5));
 
         board.printBoard();
         //System.out.println(board.isAvailablePoint(new Point(CordinateX.H, 4)));

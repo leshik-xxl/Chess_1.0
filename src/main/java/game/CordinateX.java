@@ -21,4 +21,5 @@ public enum CordinateX {
         return this.x;
     }
 
+
 }

@@ -29,11 +29,6 @@ public class Board {
         chessBoard[point.getX()][point.getY()] = null;
     }
 
-    public void removeFigure(Point sourcePoint, Point destPoint){
-        chessBoard[destPoint.getX()][destPoint.getY()] = getFigure(sourcePoint);
-        chessBoard[sourcePoint.getX()][sourcePoint.getY()] = null;
-    }
-
     public boolean isAvailablePoint(Point point){
         boolean isAvailable = false;
         try {
