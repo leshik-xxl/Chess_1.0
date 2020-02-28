@@ -76,12 +76,6 @@ public class Point {
             case (7):
                 setX(CordinateX.H);
                 break;
-            case (-1):
-                setX(CordinateX.A);
-                break;
-            case (8):
-                setX(CordinateX.H);
-                break;
             default:
                 break;
 

@@ -27,7 +27,6 @@ public class Pawn extends Figure {
         for(int i = 0; i < possiblePoint.size(); i++) {
                if (possiblePoint.get(i).equals(destPoint)) {
                    board.deleteFigure(sourcePoint);
-                   firstStep = false;
                    board.addFigure(new Pawn(destPoint, getColor(), getBoard(), this.firstStep));
                }
         }
@@ -51,7 +50,7 @@ public class Pawn extends Figure {
                 if (board.isAvailablePoint(bufPoint)) {
                     possiblePoint.add(bufPoint);
                     bufPoint = new Point(sourcePoint);
-                    //firstStep = false;
+                    firstStep = false;
                 }
             }
         }else{
@@ -67,7 +66,7 @@ public class Pawn extends Figure {
                 if (board.isAvailablePoint(bufPoint)) {
                     possiblePoint.add(bufPoint);
                     bufPoint = new Point(sourcePoint);
-                    //firstStep = false;
+                    firstStep = false;
                 }
             }
         }
