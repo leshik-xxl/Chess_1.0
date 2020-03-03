@@ -4,6 +4,7 @@ import game.ColorFigure;
 import game.CordinateX;
 import game.board.Board;
 import game.figure.Pawn;
+import game.figure.Rook;
 import game.point.Colors;
 import game.point.Point;
 
@@ -26,7 +27,8 @@ public class Main {
             Pawn pawn = new Pawn(point, white, board);
             board.addFigure(pawn);
         }
-
+        Rook rookwhite = new Rook(new Point(G, 1), white, board);
+        board.addFigure(rookwhite);
         point.setY(7);
 
         for (CordinateX x : CordinateX.values()) {
@@ -37,30 +39,52 @@ public class Main {
         }
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(A, 7), new Point(A, 5));
+        board.moveFigure(new Point(G, 1), new Point(H, 1));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(B, 2), new Point(B, 4));
+        board.moveFigure(new Point(H, 1), new Point(A, 1));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(B, 4), new Point(A, 5));
+        board.moveFigure(new Point(A, 2), new Point(A, 4));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(C, 2), new Point(C, 4));
+        board.moveFigure(new Point(A, 1), new Point(A, 3));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(D, 7), new Point(D, 5));
+        board.moveFigure(new Point(A, 3), new Point(D, 3));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(C, 4), new Point(D, 5));
+        board.moveFigure(new Point(D, 3), new Point(D, 7));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(D, 5), new Point(D, 6));
+        board.moveFigure(new Point(D, 7), new Point(E, 7));
         board.printBoard();
         System.out.println();
-        board.moveFigure(new Point(E, 7), new Point(D, 6));
-        board.printBoard();
-        System.out.println();
+
+//        board.moveFigure(new Point(A, 7), new Point(A, 5));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(B, 2), new Point(B, 4));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(B, 4), new Point(A, 5));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(C, 2), new Point(C, 4));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(D, 7), new Point(D, 5));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(C, 4), new Point(D, 5));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(D, 5), new Point(D, 6));
+//        board.printBoard();
+//        System.out.println();
+//        board.moveFigure(new Point(E, 7), new Point(D, 6));
+//        board.printBoard();
+//        System.out.println();
         //System.out.println(board.isAvailablePoint(new Point(CordinateX.H, 4)));
 
     }

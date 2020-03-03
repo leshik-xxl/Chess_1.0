@@ -37,7 +37,7 @@ public class Point {
     }
 
     public int getX() {
-        return valueX;
+        return x.getValueX();
     }
 
     public CordinateX getCoordinateX(){
