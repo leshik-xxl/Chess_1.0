@@ -41,6 +41,7 @@ public class Board {
 
     public void printBoard() {
         for (int i = chessBoard.length - 1; i >= 0; i--) {
+            System.out.print(i + 1 + "| " );
             for (int j = 0; j < chessBoard[i].length; j++) {
                 if (chessBoard[j][i] == null) {
                     System.out.print("[ ]");
@@ -50,5 +51,7 @@ public class Board {
             }
             System.out.println();
         }
+        System.out.print("    A  B  C  D  E  F  G  H ");
     }
+
 }

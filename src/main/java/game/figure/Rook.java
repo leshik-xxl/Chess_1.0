@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Rook extends Figure {
     public Rook(Point point, Colors color, Board board) {
         super(point, color, board);
-        //board.addFigure(this);
+        board.addFigure(this);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Rook extends Figure {
                 }
                 possiblePoint.add(bufPoint);
             }
-            for (int i = 0; sourcePoint.getY() - i <= 8; i++) {
+            for (int i = 0; sourcePoint.getY() + 1 - i <= 8; i++) {
                 bufPoint = new Point(sourcePoint);
                 bufPoint.setY(sourcePoint.getY() + 1 - i);
                 if (!getBoard().isAvailablePoint(bufPoint)){
@@ -47,7 +47,7 @@ public class Rook extends Figure {
             }
             for (int i = 0; sourcePoint.getX() + 1 + i <= 8; i++) {
                 bufPoint = new Point(sourcePoint);
-                bufPoint.setValueX(sourcePoint.getX() + 1 + i);
+                bufPoint.setX(sourcePoint.getX() + 1 + i);
                 if (!getBoard().isAvailablePoint(bufPoint)){
                     if(color.getValueColor() != board.getFigure(bufPoint).getColor().getValueColor()) possiblePoint.add(bufPoint);
                     break;
@@ -56,7 +56,7 @@ public class Rook extends Figure {
             }
             for (int i = 0; sourcePoint.getX() - 1 - i <= 8; i++) {
                 bufPoint = new Point(sourcePoint);
-                bufPoint.setValueX(sourcePoint.getX() - 1 - i);
+                bufPoint.setX(sourcePoint.getX() - 1 - i);
                 if (!getBoard().isAvailablePoint(bufPoint)){
                     if(color.getValueColor() != board.getFigure(bufPoint).getColor().getValueColor()) possiblePoint.add(bufPoint);
                     break;

@@ -1,5 +1,4 @@
 package game.figure;
-import game.ColorFigure;
 import game.CordinateX;
 import game.board.Board;
 import game.point.Colors;
@@ -12,12 +11,13 @@ public class Pawn extends Figure {
 
     public Pawn(Point point, Colors color, Board board) {
         super(point, color, board);
-        //board.addFigure(this);
+        board.addFigure(this);
     }
 
     private Pawn(Point point, Colors color, Board board, boolean firstStep){
         super(point, color, board);
         this.firstStep = firstStep;
+        board.addFigure(this);
     }
 
     public void move(Point sourcePoint, Point destPoint) {
@@ -100,11 +100,11 @@ public class Pawn extends Figure {
         }else{
             if(color.getValueColor() == 0){
                 bufPoint.setY(sourcePoint.getY() + 2);
-                bufPoint.setValueX(sourcePoint.getX() + 1);
+                bufPoint.setX(sourcePoint.getX() + 1);
                     if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 1){
                         possiblePoint.add(bufPoint);
                     }else {
-                        bufPoint.setValueX(sourcePoint.getX() - 1);
+                        bufPoint.setX(sourcePoint.getX() - 1);
                         if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 1){
                             possiblePoint.add(bufPoint);
                         }
@@ -112,11 +112,11 @@ public class Pawn extends Figure {
                 bufPoint = new Point(sourcePoint);
             }else{
                 bufPoint.setY(sourcePoint.getY());
-                bufPoint.setValueX(sourcePoint.getX() + 1);
+                bufPoint.setX(sourcePoint.getX() + 1);
                 if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 0){
                     possiblePoint.add(bufPoint);
                 }else {
-                    bufPoint.setValueX(sourcePoint.getX() - 1);
+                    bufPoint.setX(sourcePoint.getX() - 1);
                     if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 0){
                         possiblePoint.add(bufPoint);
                     }

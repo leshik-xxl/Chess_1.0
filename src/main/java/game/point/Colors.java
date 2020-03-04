@@ -2,9 +2,6 @@ package game.point;
 
 import game.ColorFigure;
 
-import java.util.Objects;
-
-
 public class Colors {
     private ColorFigure color;
 
