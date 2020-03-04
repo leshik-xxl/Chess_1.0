@@ -11,24 +11,22 @@ public class Pawn extends Figure {
 
     public Pawn(Point point, Colors color, Board board) {
         super(point, color, board);
-        board.addFigure(this);
     }
 
     private Pawn(Point point, Colors color, Board board, boolean firstStep){
         super(point, color, board);
         this.firstStep = firstStep;
-        board.addFigure(this);
     }
 
     public void move(Point sourcePoint, Point destPoint) {
         //System.out.println(getPossiblePoint(sourcePoint).size());
         //sourcePoint.printPoint();
         possiblePoint = getPossiblePoint(sourcePoint);
-        for(int i = 0; i < possiblePoint.size(); i++) {
-               if (possiblePoint.get(i).equals(destPoint)) {
-                   board.deleteFigure(sourcePoint);
-                   board.addFigure(new Pawn(destPoint, getColor(), getBoard(), this.firstStep));
-               }
+        for (Point value : possiblePoint) {
+            if (value.equals(destPoint)) {
+                board.deleteFigure(sourcePoint);
+                board.addFigure(new Pawn(destPoint, getColor(), getBoard(), this.firstStep));
+            }
         }
     }
 

@@ -19,9 +19,18 @@ public abstract class Figure {
         this.point = point;
         this.board = board;
         this.color = color;
+        board.addFigure(this);
     }
 
-    abstract public void move(Point sourcePoint, Point destPoint);
+    public void move(Point sourcePoint, Point destPoint){
+        possiblePoint = getPossiblePoint(sourcePoint);
+        for (Point value : possiblePoint) {
+            if (value.equals(destPoint)) {
+                board.deleteFigure(sourcePoint);
+                board.addFigure(new Rook(destPoint, getColor(), getBoard()));
+            }
+        }
+    }
     abstract public ArrayList<Point> getPossiblePoint(Point sourcePoint);
 
     public Point getPoint() {
@@ -35,5 +44,7 @@ public abstract class Figure {
     public Colors getColor() {
         return color;
     }
+
+    abstract public String toString();
 }
 

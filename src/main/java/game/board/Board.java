@@ -23,6 +23,7 @@ public class Board {
 
     public Figure getFigure(Point sourcePoint){
         return chessBoard[sourcePoint.getX()][sourcePoint.getY()];
+
     }
 
     public void deleteFigure(Point point){
@@ -31,10 +32,10 @@ public class Board {
 
     public boolean isAvailablePoint(Point point){
         boolean isAvailable = false;
-        try {
-            if (chessBoard[point.getX()][point.getY()] == null) isAvailable = true;
-        }catch(Exception e){
-        }
+        if (chessBoard[point.getX()][point.getY()] == null) isAvailable = true;
+//        try {
+//            if (chessBoard[point.getX()][point.getY()] == null) isAvailable = true;
+//        }catch(Exception ignored){}
 
         return  isAvailable;
     }

@@ -20,17 +20,18 @@ public class Main {
         Colors white = new Colors(ColorFigure.white);
         Colors black = new Colors(ColorFigure.black);
         point.setY(2);
-
+        Pawn pawn;
         for (CordinateX x : CordinateX.values()) {
             point.setX(x);
-            Pawn pawn = new Pawn(point, white, board);
+            pawn = new Pawn(point, white, board);
         }
-        Rook rookWhite = new Rook(new Point(G, 1), white, board);
+        Rook rook = new Rook(new Point(G, 1), white, board);
+        rook = new Rook(new Point(D, 8), black, board);
         point.setY(7);
 
         for (CordinateX x : CordinateX.values()) {
             point.setX(x);
-            Pawn pawnBlack = new Pawn(point, black, board);
+            pawn = new Pawn(point, black, board);
         }
 
         board.printBoard();
