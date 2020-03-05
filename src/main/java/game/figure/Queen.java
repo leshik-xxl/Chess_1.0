@@ -7,35 +7,25 @@ import game.point.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rook extends Figure {
-    public Rook(Point point, Colors color, Board board) {
+public class Queen extends Figure {
+    public Queen(Point point, Colors color, Board board) {
         super(point, color, board);
     }
 
-    public void move(Point sourcePoint, Point destPoint){
+    public void move(Point sourcePoint, Point destPoint) {
         possiblePoint = getPossiblePoint(sourcePoint);
         for (Point value : possiblePoint) {
             value.printPoint();
             if (value.equals(destPoint)) {
                 board.deleteFigure(sourcePoint);
-                board.addFigure(new Rook(destPoint, getColor(), getBoard()));
+                board.addFigure(new Queen(destPoint, getColor(), getBoard()));
             }
         }
     }
 
-    @Override
-    public ArrayList<Point> getPossiblePoint(Point sourcePoint) {
-        possiblePoint = new ArrayList<Point>();
-        directionVector(possiblePoint,sourcePoint, 0, 1);
-        directionVector(possiblePoint,sourcePoint, 1, 0);
-        directionVector(possiblePoint,sourcePoint, 0, -1);
-        directionVector(possiblePoint,sourcePoint, -1, 0);
-        return possiblePoint;
-    }
-
     public void directionVector(List<Point> possiblePoint, Point sourcePoint, int changeX, int changeY){
         int x = sourcePoint.getX(), y = sourcePoint.getY();
-        Point bufPoint;
+        Point bufPoint = new Point(sourcePoint);
         for (int i = 0; i < 8; i++) {
             x += changeX;
             y += changeY;
@@ -57,11 +47,24 @@ public class Rook extends Figure {
         }
     }
 
+    public ArrayList<Point> getPossiblePoint(Point sourcePoint) {
+        possiblePoint = new ArrayList<Point>();
+        directionVector(possiblePoint,sourcePoint, 1, 1);
+        directionVector(possiblePoint,sourcePoint, 1, -1);
+        directionVector(possiblePoint,sourcePoint, -1, -1);
+        directionVector(possiblePoint,sourcePoint, -1, 1);
+        directionVector(possiblePoint,sourcePoint, 0, 1);
+        directionVector(possiblePoint,sourcePoint, 1, 0);
+        directionVector(possiblePoint,sourcePoint, 0, -1);
+        directionVector(possiblePoint,sourcePoint, -1, 0);
+        return possiblePoint;
+    }
+
     public String toString() {
         if(color.getValueColor() == 0){
-            return "[R]";
+            return "[Q]";
         }else {
-            return "[r]";
+            return "[q]";
         }
     }
 }

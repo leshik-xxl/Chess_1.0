@@ -119,7 +119,7 @@ public class Point {
 
 
     public void printPoint(){
-        System.out.println(x.getValueX()+ " " + y);
+        System.out.println(x + " " + (y + 1));
     }
 
 }
