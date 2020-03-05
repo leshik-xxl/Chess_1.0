@@ -7,7 +7,7 @@ import game.point.Colors;
 import game.point.Point;
 
 import java.util.ArrayList;
-import java.util.List;
+
 public abstract class Figure {
 
     protected Point point;
@@ -22,15 +22,23 @@ public abstract class Figure {
         board.addFigure(this);
     }
 
-    public void move(Point sourcePoint, Point destPoint){
-        possiblePoint = getPossiblePoint(sourcePoint);
-        for (Point value : possiblePoint) {
-            if (value.equals(destPoint)) {
-                board.deleteFigure(sourcePoint);
-                board.addFigure(new Rook(destPoint, getColor(), getBoard()));
-            }
-        }
+    public Point directionVector(Point sourcePoint, int changeX, int changeY){
+        if (sourcePoint.getX() + changeX >= 0 &&
+                sourcePoint.getX() + changeX <= 7 &&
+                sourcePoint.getY() + changeY >= 0 &&
+                sourcePoint.getY() + changeY <= 7) {
+                    Point bufPoint = new Point(sourcePoint);
+                    bufPoint.set(sourcePoint.getX() + changeX, sourcePoint.getY() + 1 + changeY);
+                    if (getBoard().isAvailablePoint(bufPoint)) {
+                        return bufPoint;
+                    } else {
+                        if (getColor().getValueColor() != getBoard().getFigure(bufPoint).getColor().getValueColor())
+                            return bufPoint;
+                    }
+                }
+        return sourcePoint;
     }
+    abstract public void move(Point sourcePoint, Point destPoint);
     abstract public ArrayList<Point> getPossiblePoint(Point sourcePoint);
 
     public Point getPoint() {

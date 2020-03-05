@@ -11,46 +11,24 @@ public class Rook extends Figure {
         super(point, color, board);
     }
 
+    public void move(Point sourcePoint, Point destPoint){
+        possiblePoint = getPossiblePoint(sourcePoint);
+        for (Point value : possiblePoint) {
+            if (value.equals(destPoint)) {
+                board.deleteFigure(sourcePoint);
+                board.addFigure(new Rook(destPoint, getColor(), getBoard()));
+            }
+        }
+    }
 
     @Override
     public ArrayList<Point> getPossiblePoint(Point sourcePoint) {
         possiblePoint = new ArrayList<Point>();
-        Point bufPoint;
-            for (int i = 0; sourcePoint.getY() + 2 + i <= 8; i++) {
-                bufPoint = new Point(sourcePoint);
-                bufPoint.setY(sourcePoint.getY() + 2 + i);
-                if (!getBoard().isAvailablePoint(bufPoint)){
-                    if(color.getValueColor() != board.getFigure(bufPoint).getColor().getValueColor()) possiblePoint.add(bufPoint);
-                    break;
-                }
-                possiblePoint.add(bufPoint);
-            }
-            for (int i = 0; sourcePoint.getY() + 1 - i <= 8; i++) {
-                bufPoint = new Point(sourcePoint);
-                bufPoint.setY(sourcePoint.getY() + 1 - i);
-                if (!getBoard().isAvailablePoint(bufPoint)){
-                    if(color.getValueColor() != board.getFigure(bufPoint).getColor().getValueColor()) possiblePoint.add(bufPoint);
-                    break;
-                }
-                possiblePoint.add(bufPoint);
-            }
-            for (int i = 0; sourcePoint.getX() + 1 + i <= 8; i++) {
-                bufPoint = new Point(sourcePoint);
-                bufPoint.setX(sourcePoint.getX() + 1 + i);
-                if (!getBoard().isAvailablePoint(bufPoint)){
-                    if(color.getValueColor() != board.getFigure(bufPoint).getColor().getValueColor()) possiblePoint.add(bufPoint);
-                    break;
-                }
-                possiblePoint.add(bufPoint);
-            }
-            for (int i = 0; sourcePoint.getX() - 1 - i <= 8; i++) {
-                bufPoint = new Point(sourcePoint);
-                bufPoint.setX(sourcePoint.getX() - 1 - i);
-                if (!getBoard().isAvailablePoint(bufPoint)){
-                    if(color.getValueColor() != board.getFigure(bufPoint).getColor().getValueColor()) possiblePoint.add(bufPoint);
-                    break;
-                }
-                possiblePoint.add(bufPoint);
+            for (int i = 1; i < 8; i++) {
+                possiblePoint.add(directionVector(sourcePoint, 0, i));
+                possiblePoint.add(directionVector(sourcePoint, i, 0));
+                possiblePoint.add(directionVector(sourcePoint, 0, -i));
+                possiblePoint.add(directionVector(sourcePoint, -i, 0));
             }
         return possiblePoint;
     }

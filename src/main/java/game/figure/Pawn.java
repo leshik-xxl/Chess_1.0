@@ -32,96 +32,18 @@ public class Pawn extends Figure {
 
     public ArrayList<Point> getPossiblePoint(Point sourcePoint) {
         possiblePoint = new ArrayList<Point>();
-        Point bufPoint = new Point(sourcePoint);
-        //bufPoint.printPoint();
-        //System.out.println(color.getValueColor());
-        if(color.getValueColor() == 0) {
-            bufPoint.set(sourcePoint.getCoordinateX(), sourcePoint.getY() + 2);
-            //bufPoint.printPoint();
-            //System.out.println(board.isAvailablePoint(bufPoint));
-            if (board.isAvailablePoint(bufPoint)) {
-                possiblePoint.add(bufPoint);
-                bufPoint = new Point(sourcePoint);
-            }
-            if (firstStep) {
-                bufPoint.set(sourcePoint.getCoordinateX(), sourcePoint.getY() + 3);
-                if (board.isAvailablePoint(bufPoint)) {
-                    possiblePoint.add(bufPoint);
-                    bufPoint = new Point(sourcePoint);
-                    firstStep = false;
-                }
-            }
-        }else{
-            bufPoint = new Point(sourcePoint);
-            bufPoint.set(sourcePoint.getCoordinateX(), sourcePoint.getY() );
-            //bufPoint.printPoint();
-            if (board.isAvailablePoint(bufPoint)) {
-                possiblePoint.add(bufPoint);
-                bufPoint = new Point(sourcePoint);
-            }
-            if (firstStep) {
-                bufPoint.set(sourcePoint.getCoordinateX(), sourcePoint.getY() - 1);
-                if (board.isAvailablePoint(bufPoint)) {
-                    possiblePoint.add(bufPoint);
-                    bufPoint = new Point(sourcePoint);
-                    firstStep = false;
-                }
-            }
+        if(color.getValueColor() == 1){
+            if(firstStep) possiblePoint.add(directionVector(sourcePoint, 0, -2));
+            possiblePoint.add(directionVector(sourcePoint, 0, -1));
+            possiblePoint.add(directionVector(sourcePoint, 1, -1));
+            possiblePoint.add(directionVector(sourcePoint, -1, -1));
+        }else {
+            if(firstStep) possiblePoint.add(directionVector(sourcePoint, 0, 2));
+            possiblePoint.add(directionVector(sourcePoint, 0, 1));
+            possiblePoint.add(directionVector(sourcePoint, 1, 1));
+            possiblePoint.add(directionVector(sourcePoint, -1, 1));
         }
-
-        if(sourcePoint.getX() == 0 || sourcePoint.getX() == 7){
-            if (sourcePoint.getX() == 0){
-                bufPoint.setX(CordinateX.B);
-                if(color.getValueColor() == 0){
-                    bufPoint.setY(sourcePoint.getY() + 2);
-                    if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 1)
-                        possiblePoint.add(bufPoint);
-                }else {
-                    bufPoint.setY(sourcePoint.getY());
-                    if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 0)
-                        possiblePoint.add(bufPoint);
-                }
-                bufPoint = new Point(sourcePoint);
-            }else {
-                bufPoint.setX(CordinateX.G);
-                if(color.getValueColor() == 0){
-                    bufPoint.setY(sourcePoint.getY() + 2);
-                    if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 1)
-                        possiblePoint.add(bufPoint);
-                }else {
-                    bufPoint.setY(sourcePoint.getY());
-                    if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 0)
-                        possiblePoint.add(bufPoint);
-                }
-                bufPoint = new Point(sourcePoint);
-            }
-        }else{
-            if(color.getValueColor() == 0){
-                bufPoint.setY(sourcePoint.getY() + 2);
-                bufPoint.setX(sourcePoint.getX() + 1);
-                    if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 1){
-                        possiblePoint.add(bufPoint);
-                    }else {
-                        bufPoint.setX(sourcePoint.getX() - 1);
-                        if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 1){
-                            possiblePoint.add(bufPoint);
-                        }
-                                    }
-                bufPoint = new Point(sourcePoint);
-            }else{
-                bufPoint.setY(sourcePoint.getY());
-                bufPoint.setX(sourcePoint.getX() + 1);
-                if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 0){
-                    possiblePoint.add(bufPoint);
-                }else {
-                    bufPoint.setX(sourcePoint.getX() - 1);
-                    if(!board.isAvailablePoint(bufPoint) && board.getFigure(bufPoint).getColor().getValueColor() == 0){
-                        possiblePoint.add(bufPoint);
-                    }
-                }
-                bufPoint = new Point(sourcePoint);
-            }
-        }
+        firstStep = false;
         return possiblePoint;
     }
 

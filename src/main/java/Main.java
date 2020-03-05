@@ -4,6 +4,7 @@ import game.ColorFigure;
 import game.CordinateX;
 import game.UsersPlay;
 import game.board.Board;
+import game.figure.Horse;
 import game.figure.Pawn;
 import game.figure.Rook;
 import game.point.Colors;
@@ -27,6 +28,7 @@ public class Main {
         }
         Rook rook = new Rook(new Point(G, 1), white, board);
         rook = new Rook(new Point(D, 8), black, board);
+        Horse horse = new Horse(new Point(D, 4), white, board);
         point.setY(7);
 
         for (CordinateX x : CordinateX.values()) {
