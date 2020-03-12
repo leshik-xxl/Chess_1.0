@@ -7,6 +7,8 @@ import game.board.Board;
 import game.figure.*;
 import game.point.Colors;
 import game.point.Point;
+import game.ui.ChessFrame;
+
 import static game.CordinateX.*;
 
 
@@ -19,10 +21,11 @@ public class Main {
         Colors white = new Colors(ColorFigure.white);
         Colors black = new Colors(ColorFigure.black);
         point.setY(2);
-        Pawn pawn;
+//        Pawn pawn;
         for (CordinateX x : CordinateX.values()) {
-            point.setX(x);
-            pawn = new Pawn(point, white, board);
+            new Pawn(new Point(x, 2), white, board);
+//            point.setX(x);
+//            pawn = new Pawn(point, white, board);
         }
         Rook rook = new Rook(new Point(G, 3), white, board);
         rook = new Rook(new Point(D, 8), black, board);
@@ -32,13 +35,15 @@ public class Main {
         point.setY(7);
 
         for (CordinateX x : CordinateX.values()) {
-            point.setX(x);
-            pawn = new Pawn(point, black, board);
+            new Pawn(new Point(x, 7), black, board);
+//            point.setX(x);
+//            pawn = new Pawn(point, black, board);
         }
 
         board.printBoard();
+        new ChessFrame(board);
         System.out.println();
-        while (game.play(board));
+//        while (game.play(board));
 
     }
 

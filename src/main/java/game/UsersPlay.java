@@ -40,8 +40,6 @@ public class UsersPlay {
                 return CordinateX.H;
             default:
                 return null;
-
-
         }
     }
 }

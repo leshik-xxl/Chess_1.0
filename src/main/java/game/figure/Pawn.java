@@ -5,6 +5,7 @@ import game.point.Colors;
 import game.point.Point;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Pawn extends Figure {
     private boolean firstStep = true;
